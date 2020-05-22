@@ -1,4 +1,4 @@
-book_filename: "bookdown-start"
+book_filename: "SensoryWithR"
 chapter_name: "Chapter "
 repo: https://github.com/seankross/bookdown-start
 output_dir: docs

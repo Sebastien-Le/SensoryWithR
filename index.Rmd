@@ -1,6 +1,6 @@
 --- 
-title: "A Minimal Bookdown Book"
-author: "Sean Kross"
+title: "Analyzing Sensory and Consumer Data"
+author: "S. Lê"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book

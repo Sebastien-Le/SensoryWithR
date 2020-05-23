@@ -1,7 +1,7 @@
 --- 
-title: "A Minimal Bookdown Book"
-author: "Sean Kross"
-date: "2016-12-09"
+title: "Analyzing Sensory and Consumer Data - New"
+author: "S. Lê"
+date: "2020-05-23"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]

@@ -1,13 +1,13 @@
 --- 
 title: "Analyzing Sensory and Consumer Data - New"
 author: "S. Lê"
-date: "2020-06-03"
+date: "2020-06-04"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: seankross/bookdown-start
+github-repo: Sebastien-Le/SensoryWithR
 url: 'http\://seankross.com/bookdown-start/'
 description: "Everything you need (and nothing more) to start a bookdown book."
 ---

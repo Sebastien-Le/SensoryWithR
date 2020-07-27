@@ -1,7 +1,7 @@
 # Understanding the data from a product perspective
 ## Understanding the products from a chemical and physical point of view
 
-In the following code, we first import the data with the **read.delim2** function, then we print the first rows with the **head** function ; finally we make a summary of the dataset with the **summary** function. All these steps are really important when you begin you analysis. Tentative.
+In the following code, we first import the data with the **read.delim2** function, then we print the first rows with the **head** function ; finally we make a summary of the dataset with the **summary** function. All these steps are really important when you begin you analysis.
 
 ```{r}
 salmon_car <- read.delim2("Salmon_characteristics.txt", 
@@ -10,4 +10,110 @@ head(salmon_car)
 summary(salmon_car)
 ```
 
+As you can see in the output, something is missing in the description of the variable *origin*. By default, the numbers of levels to be displayed is equal to 7. Let's set the argument *maxsum* to 8 and see what happens. 
 
+```{r}
+summary(salmon_car,maxsum=8)
+```
+
+Now we want to get a multivariate description of the smoked salmons based on their chemical and physical measurements. As all the measures (except *origin*) are continuous, we're going to run a PCA on the dataset. It seems fair to consider all the variables as *active*, and to scale them to unit variance. Here, the last variable *origin* is considered as *illustrative*.
+
+To do so, we are using the **FactoMineR** package and the **PCA** function. First, load the **FactoMineR** package and run the **PCA** function.
+
+```{r}
+library(FactoMineR)
+res <- PCA(salmon_car,quali.sup=17,graph=F)
+names(res)
+```
+
+When you run a PCA, you often want to save the results in an R object, in order to use them latter. This is what we did: we saved them in an object we named *res*, then we applied the **names** function to that object. This function allows you to obtain the names of the different components of the input. For instance, if you want to see of the variance is decomposed:
+
+```{r}
+res$eig
+barplot(res$eig[,1])
+```
+
+Now, let's see what happens if we run the **plot.PCA** function to the *res* object.
+
+```{r}
+plot.PCA(res,choix="var")
+plot.PCA(res,choix="ind")
+plot.PCA(res,choix="ind",invisible="quali")
+```
+
+As you can see, some news feature have been added to the **FactoMineR** package, notably the *ggplot* type representation of the individuals and the variables. In this example, we can see how important *supplementary* variables can be. We can also see how they can be represented, which is the case by default. Here, we projected the information on the origin of the smoked salmon. Look at the product 10, how do you think this product is salty?
+
+Any questions about the concept of *illustrative* variables? What do you think about the percentage associated with each axis?
+
+Now that we know how to differentiate *illustrative* or *supplementary* variables from the *active* ones, let's spend some time to interpret this PCA. As you know, the two graphical representations have to be interpreted jointly.
+
+You may want to use the **dimdesc** function to get an interpretation of the axis.
+
+```{r}
+resdim <- dimdesc(res)
+names(resdim)
+resdim$Dim.1
+```
+
+Now, you can try to explore the dataset in a more dynamical manner. What is the difference between this, 
+
+```{r,eval=FALSE}
+library(explor)
+res <- PCA(salmon_car,quali.sup=17,graph=F)
+explor(res)
+```
+
+and this?
+
+```{r,eval=FALSE}
+res <- PCA(salmon_car[,-17],graph=F)
+explor(res)
+```
+
+**Exercise. **
+You can play with the different arguments of the **PCA** and the **plot.PCA** functions.
+
+**Remark. **PCA, by extracting dimensions, can be seen as a method to summarize the data, or more precisely the relations amongst the variables of your dataset. Some people would say that by running a PCA you cluster variables into dimensions. It's very convenient, because you simplify your understanding by using a few dimensions instead of all the variables.
+You could do the same thing with the individuals. Instead of reducing the complexity on your variables, you will reduce the complexity on the individuals.
+
+```{r}
+reshcpc <- HCPC(res,nb.clust=3)
+names(reshcpc)
+names(reshcpc$desc.var)
+names(reshcpc$desc.var$quanti)
+reshcpc$desc.var$quanti$`1`
+reshcpc$desc.var$quanti$`2`
+reshcpc$desc.var$quanti$`3`
+```
+
+Instead of having 30 smoked salmons, we now have 3 groups of salmons: that's how we reduce the complexity of our problem.
+
+Let's use a very interesting output of our **HCPC** function, and play with it.
+
+```{r}
+summary(reshcpc$data.clust)
+res <- PCA(reshcpc$data.clust,quali.sup=c(17,18),graph=F)
+plot.PCA(res,choix="var",graph.type = "classic")
+plot.PCA(res,choix="var",graph.type = "ggplot")
+plot.PCA(res,choix="ind",invisible="quali",habillage = 17)
+plot.PCA(res,choix="ind",invisible="quali",habillage = 18)
+plot.PCA(res,choix="ind",invisible="ind")
+plot(res,habillage="salt",ggoptions=list(low.col.quanti="grey90",high.col.quanti="grey10"),
+legend=list(x="bottom"),invisible = "quali")
+```
+
+**Exercise. **This exercise is very important as it presents two very useful functions of the **FactoMineR** package.
+
+```{r, eval=FALSE}
+descfreq(table(reshcpc$data.clust$clust,reshcpc$data.clust$origin))
+catdes(reshcpc$data.clust,num.var=18)
+```
+
+To understand the code, you should first run this:
+
+```{r, eval=FALSE}
+table(reshcpc$data.clust$clust,reshcpc$data.clust$origin)
+colnames(reshcpc$data.clust)
+```
+
+**Exercise. **Please, provide a description of the French salmons.

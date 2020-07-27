@@ -1,7 +1,7 @@
 # Understanding the data from a product perspective
 ## Understanding the products from a chemical and physical point of view
 
-In the following code, we first import the data with the **read.delim2** function, then we print the first rows with the **head** function ; finally we make a summary of the dataset with the **summary** function. All these steps are really important when you begin you analysis.
+In the following code, we first import the data with the **read.delim2** function, then we print the first rows with the **head** function ; finally we make a summary of the dataset with the **summary** function. All these steps are really important when you begin you analysis. Tentative.
 
 
 ```r

@@ -1,4 +1,13 @@
-# Introduction
+# Understanding the data from a product perspective
+## Understanding the products from a chemical and physical point of view
 
-This is the first real real chapter. TEST.
+In the following code, we first import the data with the **read.delim2** function, then we print the first rows with the **head** function ; finally we make a summary of the dataset with the **summary** function. All these steps are really important when you begin you analysis.
+
+```{r}
+salmon_car <- read.delim2("Salmon_characteristics.txt", 
+header=TRUE, row.names=1, comment.char="#",dec=",")
+head(salmon_car)
+summary(salmon_car)
+```
+
 

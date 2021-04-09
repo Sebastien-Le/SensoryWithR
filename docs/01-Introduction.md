@@ -1,12 +1,13 @@
 # Understanding the data from a product perspective
 ## Understanding the products from a chemical and physical point of view
+### Let's first have a look at the data
 
-In the following code, we first import the data with the **read.delim2** function, then we print the first rows with the **head** function ; finally we make a summary of the dataset with the **summary** function. All these steps are really important when you begin you analysis.
+In the following code, we first import the data with the **read.table** function, then we use the **head** function in order to have a look at the dataset; finally we make a summary of the dataset with the **summary** function. All these steps are really important when you begin you analysis.
 
 
 ```r
-salmon_car <- read.delim2("Salmon_characteristics.txt", 
-header=TRUE, row.names=1, comment.char="#",dec=",")
+salmon_car <- read.table("Salmon_characteristics.txt", header=TRUE, row.names=1,
+                         dec=",", sep="\t")
 head(salmon_car)
 ```
 
@@ -76,6 +77,84 @@ summary(salmon_car)
 ##  Max.   : 3.323600
 ```
 
+```r
+class(salmon_car$origin)
+```
+
+```
+## [1] "character"
+```
+
+The **summary** function as well as the **class** function show that the class of last variable *origin* is "character". If you want to know more about this class, please refer to this [link](https://www.r-bloggers.com/character-strings-in-r/). Let's transform this variable into a factor. To do so, we use the **as.factor** function.
+
+
+```r
+salmon_car$origin <- as.factor(salmon_car$origin)
+```
+
+Let's now run the **summary** function again to see what has changed.
+
+
+```r
+summary(salmon_car)
+```
+
+```
+##      water              lipid                 TVBN              TMA            
+##  Min.   :-1.69910   Min.   :-2.4628000   Min.   :-1.1623   Min.   :-0.8717000  
+##  1st Qu.:-0.85198   1st Qu.:-0.4259750   1st Qu.:-0.7629   1st Qu.:-0.8717000  
+##  Median :-0.07435   Median : 0.2159000   Median :-0.3635   Median :-0.2757000  
+##  Mean   :-0.00001   Mean   : 0.0000067   Mean   : 0.0000   Mean   : 0.0000033  
+##  3rd Qu.: 0.47713   3rd Qu.: 0.5763000   3rd Qu.: 0.4354   3rd Qu.: 0.5439000  
+##  Max.   : 2.02730   Max.   : 1.6251000   Max.   : 2.6322   Max.   : 2.4065000  
+##                                                                                
+##       salt             phenol               pH             total.viable.count  
+##  Min.   :-2.0049   Min.   :-1.20730   Min.   :-1.7733000   Min.   :-2.5977000  
+##  1st Qu.:-0.6115   1st Qu.:-0.65633   1st Qu.:-0.8617500   1st Qu.:-0.3530250  
+##  Median : 0.0077   Median :-0.29985   Median :-0.0331500   Median : 0.2699000  
+##  Mean   : 0.0000   Mean   : 0.00001   Mean   :-0.0000067   Mean   : 0.0000067  
+##  3rd Qu.: 0.3174   3rd Qu.: 0.40010   3rd Qu.: 0.8368750   3rd Qu.: 0.8187750  
+##  Max.   : 2.4848   Max.   : 3.45930   Max.   : 2.0384000   Max.   : 1.1384000  
+##                                                                                
+##   lactic.flora         lactobacilli         brochothrix     
+##  Min.   :-1.5861000   Min.   :-1.0624000   Min.   :-0.7559  
+##  1st Qu.:-0.4710500   1st Qu.:-1.0624000   1st Qu.:-0.7559  
+##  Median : 0.3886500   Median : 0.2064500   Median :-0.7559  
+##  Mean   : 0.0000033   Mean   :-0.0000067   Mean   : 0.0000  
+##  3rd Qu.: 0.8312750   3rd Qu.: 0.9333500   3rd Qu.: 0.8192  
+##  Max.   : 1.5327000   Max.   : 1.9639000   Max.   : 2.4632  
+##                                                             
+##      yeast            enterobacteriaceae       L                 a          
+##  Min.   :-1.0340000   Min.   :-1.57930   Min.   :-1.8353   Min.   :-3.9939  
+##  1st Qu.:-1.0340000   1st Qu.:-0.65815   1st Qu.:-0.8034   1st Qu.:-0.4152  
+##  Median : 0.2608000   Median : 0.04190   Median : 0.1441   Median : 0.2868  
+##  Mean   : 0.0000033   Mean   :-0.00001   Mean   : 0.0000   Mean   : 0.0000  
+##  3rd Qu.: 0.7537750   3rd Qu.: 0.79060   3rd Qu.: 0.5455   3rd Qu.: 0.5362  
+##  Max.   : 2.1072000   Max.   : 1.64720   Max.   : 2.5982   Max.   : 1.7439  
+##                                                                             
+##        b                 origin 
+##  Min.   :-1.827700   France :8  
+##  1st Qu.:-0.577750   Germany:6  
+##  Median : 0.073650   UK     :4  
+##  Mean   :-0.000003   Belgium:3  
+##  3rd Qu.: 0.388475   DK     :3  
+##  Max.   : 3.323600   Ireland:3  
+##                      (Other):3
+```
+
+The *origin* variable is considered as a factor; we can have a look at its levels with the **levels** function.
+
+
+```r
+levels(salmon_car$origin)
+```
+
+```
+## [1] "Belgium"  "DK"       "France"   "Germany"  "Ireland"  "Italy"    "Scotland"
+## [8] "UK"
+```
+
+
 As you can see in the output, something is missing in the description of the variable *origin*. By default, the numbers of levels to be displayed is equal to 7. Let's set the argument *maxsum* to 8 and see what happens. 
 
 
@@ -91,6 +170,8 @@ summary(salmon_car,maxsum=8)
 ##  Mean   :-0.00001   Mean   : 0.0000067   Mean   : 0.0000   Mean   : 0.0000033  
 ##  3rd Qu.: 0.47713   3rd Qu.: 0.5763000   3rd Qu.: 0.4354   3rd Qu.: 0.5439000  
 ##  Max.   : 2.02730   Max.   : 1.6251000   Max.   : 2.6322   Max.   : 2.4065000  
+##                                                                                
+##                                                                                
 ##       salt             phenol               pH             total.viable.count  
 ##  Min.   :-2.0049   Min.   :-1.20730   Min.   :-1.7733000   Min.   :-2.5977000  
 ##  1st Qu.:-0.6115   1st Qu.:-0.65633   1st Qu.:-0.8617500   1st Qu.:-0.3530250  
@@ -98,6 +179,8 @@ summary(salmon_car,maxsum=8)
 ##  Mean   : 0.0000   Mean   : 0.00001   Mean   :-0.0000067   Mean   : 0.0000067  
 ##  3rd Qu.: 0.3174   3rd Qu.: 0.40010   3rd Qu.: 0.8368750   3rd Qu.: 0.8187750  
 ##  Max.   : 2.4848   Max.   : 3.45930   Max.   : 2.0384000   Max.   : 1.1384000  
+##                                                                                
+##                                                                                
 ##   lactic.flora         lactobacilli         brochothrix     
 ##  Min.   :-1.5861000   Min.   :-1.0624000   Min.   :-0.7559  
 ##  1st Qu.:-0.4710500   1st Qu.:-1.0624000   1st Qu.:-0.7559  
@@ -105,6 +188,8 @@ summary(salmon_car,maxsum=8)
 ##  Mean   : 0.0000033   Mean   :-0.0000067   Mean   : 0.0000  
 ##  3rd Qu.: 0.8312750   3rd Qu.: 0.9333500   3rd Qu.: 0.8192  
 ##  Max.   : 1.5327000   Max.   : 1.9639000   Max.   : 2.4632  
+##                                                             
+##                                                             
 ##      yeast            enterobacteriaceae       L                 a          
 ##  Min.   :-1.0340000   Min.   :-1.57930   Min.   :-1.8353   Min.   :-3.9939  
 ##  1st Qu.:-1.0340000   1st Qu.:-0.65815   1st Qu.:-0.8034   1st Qu.:-0.4152  
@@ -112,13 +197,17 @@ summary(salmon_car,maxsum=8)
 ##  Mean   : 0.0000033   Mean   :-0.00001   Mean   : 0.0000   Mean   : 0.0000  
 ##  3rd Qu.: 0.7537750   3rd Qu.: 0.79060   3rd Qu.: 0.5455   3rd Qu.: 0.5362  
 ##  Max.   : 2.1072000   Max.   : 1.64720   Max.   : 2.5982   Max.   : 1.7439  
-##        b                origin         
-##  Min.   :-1.827700   Length:30         
-##  1st Qu.:-0.577750   Class :character  
-##  Median : 0.073650   Mode  :character  
-##  Mean   :-0.000003                     
-##  3rd Qu.: 0.388475                     
-##  Max.   : 3.323600
+##                                                                             
+##                                                                             
+##        b                  origin 
+##  Min.   :-1.827700   Belgium :3  
+##  1st Qu.:-0.577750   DK      :3  
+##  Median : 0.073650   France  :8  
+##  Mean   :-0.000003   Germany :6  
+##  3rd Qu.: 0.388475   Ireland :3  
+##  Max.   : 3.323600   Italy   :1  
+##                      Scotland:2  
+##                      UK      :4
 ```
 
 Now we want to get a multivariate description of the smoked salmons based on their chemical and physical measurements. As all the measures (except *origin*) are continuous, we're going to run a PCA on the dataset. It seems fair to consider all the variables as *active*, and to scale them to unit variance. Here, the last variable *origin* is considered as *illustrative*.
@@ -167,7 +256,7 @@ res$eig
 barplot(res$eig[,1])
 ```
 
-<img src="01-Introduction_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<img src="01-Introduction_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
 Now, let's see what happens if we run the **plot.PCA** function to the *res* object.
 
@@ -176,19 +265,19 @@ Now, let's see what happens if we run the **plot.PCA** function to the *res* obj
 plot.PCA(res,choix="var")
 ```
 
-<img src="01-Introduction_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<img src="01-Introduction_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
 ```r
 plot.PCA(res,choix="ind")
 ```
 
-<img src="01-Introduction_files/figure-html/unnamed-chunk-5-2.png" width="672" />
+<img src="01-Introduction_files/figure-html/unnamed-chunk-8-2.png" width="672" />
 
 ```r
 plot.PCA(res,choix="ind",invisible="quali")
 ```
 
-<img src="01-Introduction_files/figure-html/unnamed-chunk-5-3.png" width="672" />
+<img src="01-Introduction_files/figure-html/unnamed-chunk-8-3.png" width="672" />
 
 As you can see, some news feature have been added to the **FactoMineR** package, notably the *ggplot* type representation of the individuals and the variables. In this example, we can see how important *supplementary* variables can be. We can also see how they can be represented, which is the case by default. Here, we projected the information on the origin of the smoked salmon. Look at the product 10, how do you think this product is salty?
 
@@ -268,7 +357,7 @@ You could do the same thing with the individuals. Instead of reducing the comple
 reshcpc <- HCPC(res,nb.clust=3)
 ```
 
-<img src="01-Introduction_files/figure-html/unnamed-chunk-9-1.png" width="672" /><img src="01-Introduction_files/figure-html/unnamed-chunk-9-2.png" width="672" /><img src="01-Introduction_files/figure-html/unnamed-chunk-9-3.png" width="672" />
+<img src="01-Introduction_files/figure-html/unnamed-chunk-12-1.png" width="672" /><img src="01-Introduction_files/figure-html/unnamed-chunk-12-2.png" width="672" /><img src="01-Introduction_files/figure-html/unnamed-chunk-12-3.png" width="672" />
 
 ```r
 names(reshcpc)
@@ -430,38 +519,38 @@ res <- PCA(reshcpc$data.clust,quali.sup=c(17,18),graph=F)
 plot.PCA(res,choix="var",graph.type = "classic")
 ```
 
-<img src="01-Introduction_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+<img src="01-Introduction_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 
 ```r
 plot.PCA(res,choix="var",graph.type = "ggplot")
 ```
 
-<img src="01-Introduction_files/figure-html/unnamed-chunk-10-2.png" width="672" />
+<img src="01-Introduction_files/figure-html/unnamed-chunk-13-2.png" width="672" />
 
 ```r
 plot.PCA(res,choix="ind",invisible="quali",habillage = 17)
 ```
 
-<img src="01-Introduction_files/figure-html/unnamed-chunk-10-3.png" width="672" />
+<img src="01-Introduction_files/figure-html/unnamed-chunk-13-3.png" width="672" />
 
 ```r
 plot.PCA(res,choix="ind",invisible="quali",habillage = 18)
 ```
 
-<img src="01-Introduction_files/figure-html/unnamed-chunk-10-4.png" width="672" />
+<img src="01-Introduction_files/figure-html/unnamed-chunk-13-4.png" width="672" />
 
 ```r
 plot.PCA(res,choix="ind",invisible="ind")
 ```
 
-<img src="01-Introduction_files/figure-html/unnamed-chunk-10-5.png" width="672" />
+<img src="01-Introduction_files/figure-html/unnamed-chunk-13-5.png" width="672" />
 
 ```r
 plot(res,habillage="salt",ggoptions=list(low.col.quanti="grey90",high.col.quanti="grey10"),
 legend=list(x="bottom"),invisible = "quali")
 ```
 
-<img src="01-Introduction_files/figure-html/unnamed-chunk-10-6.png" width="672" />
+<img src="01-Introduction_files/figure-html/unnamed-chunk-13-6.png" width="672" />
 
 **Exercise. **This exercise is very important as it presents two very useful functions of the **FactoMineR** package.
 

@@ -1,14 +1,35 @@
 # Understanding the data from a product perspective
 ## Understanding the products from a chemical and physical point of view
+### Let's first have a look at the data
 
-In the following code, we first import the data with the **read.delim2** function, then we print the first rows with the **head** function ; finally we make a summary of the dataset with the **summary** function. All these steps are really important when you begin you analysis.
+In the following code, we first import the data with the **read.table** function, then we use the **head** function in order to have a look at the dataset; finally we make a summary of the dataset with the **summary** function. All these steps are really important when you begin you analysis.
 
 ```{r}
-salmon_car <- read.delim2("Salmon_characteristics.txt", 
-header=TRUE, row.names=1, comment.char="#",dec=",")
+salmon_car <- read.table("Salmon_characteristics.txt", header=TRUE, row.names=1,
+                         dec=",", sep="\t")
 head(salmon_car)
 summary(salmon_car)
+class(salmon_car$origin)
 ```
+
+The **summary** function as well as the **class** function show that the class of last variable *origin* is "character". If you want to know more about this class, please refer to this [link](https://www.r-bloggers.com/character-strings-in-r/). Let's transform this variable into a factor. To do so, we use the **as.factor** function.
+
+```{r}
+salmon_car$origin <- as.factor(salmon_car$origin)
+```
+
+Let's now run the **summary** function again to see what has changed.
+
+```{r}
+summary(salmon_car)
+```
+
+The *origin* variable is considered as a factor; we can have a look at its levels with the **levels** function.
+
+```{r}
+levels(salmon_car$origin)
+```
+
 
 As you can see in the output, something is missing in the description of the variable *origin*. By default, the numbers of levels to be displayed is equal to 7. Let's set the argument *maxsum* to 8 and see what happens. 
 
@@ -116,4 +137,4 @@ table(reshcpc$data.clust$clust,reshcpc$data.clust$origin)
 colnames(reshcpc$data.clust)
 ```
 
-**Exercise. **Please, provide a description of the French salmons.
+**Exercise. **Please, provide a description of the French salmons...

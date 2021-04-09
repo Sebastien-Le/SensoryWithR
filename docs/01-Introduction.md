@@ -326,7 +326,7 @@ resdim$Dim.1
 ## origin=Scotland -3.662799 0.02354381
 ## 
 ## attr(,"class")
-## [1] "condes" "list "
+## [1] "condes" "list"
 ```
 
 Now, you can try to explore the dataset in a more dynamical manner. What is the difference between this, 
@@ -568,4 +568,4 @@ table(reshcpc$data.clust$clust,reshcpc$data.clust$origin)
 colnames(reshcpc$data.clust)
 ```
 
-**Exercise. **Please, provide a description of the French salmons.
+**Exercise. **Please, provide a description of the French salmons regarding their characteristics.

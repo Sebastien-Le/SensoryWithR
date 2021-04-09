@@ -1,7 +1,7 @@
 --- 
 title: "Analyzing Sensory and Consumer Data - New"
 author: "S. Lê"
-date: "2020-06-04"
+date: "2021-04-09"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 Understanding the data from a product perspective | Analyzing Sensory and Consumer Data - New</title>
   <meta name="description" content="Everything you need (and nothing more) to start a bookdown book." />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 Understanding the data from a product perspective | Analyzing Sensory and Consumer Data - New" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="S. Lê" />
 
 
-<meta name="date" content="2020-06-04" />
+<meta name="date" content="2021-04-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="diving-in.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,25 +54,27 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +83,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -132,8 +135,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="1" data-path="understanding-the-data-from-a-product-perspective.html"><a href="understanding-the-data-from-a-product-perspective.html"><i class="fa fa-check"></i><b>1</b> Understanding the data from a product perspective</a><ul>
-<li class="chapter" data-level="1.1" data-path="understanding-the-data-from-a-product-perspective.html"><a href="understanding-the-data-from-a-product-perspective.html#understanding-the-products-from-a-chemical-and-physical-point-of-view"><i class="fa fa-check"></i><b>1.1</b> Understanding the products from a chemical and physical point of view</a><ul>
+<li class="chapter" data-level="1" data-path="understanding-the-data-from-a-product-perspective.html"><a href="understanding-the-data-from-a-product-perspective.html"><i class="fa fa-check"></i><b>1</b> Understanding the data from a product perspective</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="understanding-the-data-from-a-product-perspective.html"><a href="understanding-the-data-from-a-product-perspective.html#understanding-the-products-from-a-chemical-and-physical-point-of-view"><i class="fa fa-check"></i><b>1.1</b> Understanding the products from a chemical and physical point of view</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="understanding-the-data-from-a-product-perspective.html"><a href="understanding-the-data-from-a-product-perspective.html#lets-first-have-a-look-at-the-data"><i class="fa fa-check"></i><b>1.1.1</b> Let’s first have a look at the data</a></li>
 </ul></li>
 </ul></li>
@@ -159,16 +164,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="understanding-the-data-from-a-product-perspective" class="section level1">
+<div id="understanding-the-data-from-a-product-perspective" class="section level1" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Understanding the data from a product perspective</h1>
-<div id="understanding-the-products-from-a-chemical-and-physical-point-of-view" class="section level2">
+<div id="understanding-the-products-from-a-chemical-and-physical-point-of-view" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Understanding the products from a chemical and physical point of view</h2>
-<div id="lets-first-have-a-look-at-the-data" class="section level3">
+<div id="lets-first-have-a-look-at-the-data" class="section level3" number="1.1.1">
 <h3><span class="header-section-number">1.1.1</span> Let’s first have a look at the data</h3>
 <p>In the following code, we first import the data with the <strong>read.table</strong> function, then we use the <strong>head</strong> function in order to have a look at the dataset; finally we make a summary of the dataset with the <strong>summary</strong> function. All these steps are really important when you begin you analysis.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">salmon_car &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;Salmon_characteristics.txt&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">row.names=</span><span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">                         <span class="dt">dec=</span><span class="st">&quot;,&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">head</span>(salmon_car)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="understanding-the-data-from-a-product-perspective.html#cb1-1" aria-hidden="true" tabindex="-1"></a>salmon_car <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;Salmon_characteristics.txt&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">row.names=</span><span class="dv">1</span>,</span>
+<span id="cb1-2"><a href="understanding-the-data-from-a-product-perspective.html#cb1-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">dec=</span><span class="st">&quot;,&quot;</span>, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb1-3"><a href="understanding-the-data-from-a-product-perspective.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(salmon_car)</span></code></pre></div>
 <pre><code>##              water   lipid    TVBN     TMA    salt  phenol      pH
 ## prod1_Fr   -0.8644  1.1375 -0.7629 -0.8717 -0.1471 -0.3776  1.5412
 ## prod2_Fr   -1.1476  0.7036  0.2357  0.3204  0.1626  0.0112  1.2098
@@ -190,7 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## prod4_Scot            -1.5793  0.3020  1.7439  3.3236 Scotland
 ## prod5_Ger             -0.9582 -1.3485  0.7341  0.5485  Germany
 ## prod6_Ire             -1.5793 -0.4322  0.4016  0.4278  Ireland</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">summary</span>(salmon_car)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="understanding-the-data-from-a-product-perspective.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(salmon_car)</span></code></pre></div>
 <pre><code>##      water              lipid                 TVBN              TMA            
 ##  Min.   :-1.69910   Min.   :-2.4628000   Min.   :-1.1623   Min.   :-0.8717000  
 ##  1st Qu.:-0.85198   1st Qu.:-0.4259750   1st Qu.:-0.7629   1st Qu.:-0.8717000  
@@ -226,12 +231,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  Mean   :-0.000003                     
 ##  3rd Qu.: 0.388475                     
 ##  Max.   : 3.323600</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">class</span>(salmon_car<span class="op">$</span>origin)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="understanding-the-data-from-a-product-perspective.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(salmon_car<span class="sc">$</span>origin)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<p>The <strong>summary</strong> function as well as the <strong>class</strong> function show that the class of last variable <em>origin</em> is “character”. If you want to know more about this class, please refer to this <a href="https://www.r-bloggers.com/character-strings-in-r/">link</a>. Let’s transform this variable into a factor. To do so, we use the <strong>as.factor</strong> function.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">salmon_car<span class="op">$</span>origin &lt;-<span class="st"> </span><span class="kw">as.factor</span>(salmon_car<span class="op">$</span>origin)</a></code></pre></div>
+<p>The <strong>summary</strong> function as well as the <strong>class</strong> function show that the class of last variable <em>origin</em> is “character.” If you want to know more about this class, please refer to this <a href="https://www.r-bloggers.com/character-strings-in-r/">link</a>. Let’s transform this variable into a factor. To do so, we use the <strong>as.factor</strong> function.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="understanding-the-data-from-a-product-perspective.html#cb7-1" aria-hidden="true" tabindex="-1"></a>salmon_car<span class="sc">$</span>origin <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(salmon_car<span class="sc">$</span>origin)</span></code></pre></div>
 <p>Let’s now run the <strong>summary</strong> function again to see what has changed.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">summary</span>(salmon_car)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="understanding-the-data-from-a-product-perspective.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(salmon_car)</span></code></pre></div>
 <pre><code>##      water              lipid                 TVBN              TMA            
 ##  Min.   :-1.69910   Min.   :-2.4628000   Min.   :-1.1623   Min.   :-0.8717000  
 ##  1st Qu.:-0.85198   1st Qu.:-0.4259750   1st Qu.:-0.7629   1st Qu.:-0.8717000  
@@ -273,11 +278,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  Max.   : 3.323600   Ireland:3  
 ##                      (Other):3</code></pre>
 <p>The <em>origin</em> variable is considered as a factor; we can have a look at its levels with the <strong>levels</strong> function.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">levels</span>(salmon_car<span class="op">$</span>origin)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="understanding-the-data-from-a-product-perspective.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(salmon_car<span class="sc">$</span>origin)</span></code></pre></div>
 <pre><code>## [1] &quot;Belgium&quot;  &quot;DK&quot;       &quot;France&quot;   &quot;Germany&quot;  &quot;Ireland&quot;  &quot;Italy&quot;    &quot;Scotland&quot;
 ## [8] &quot;UK&quot;</code></pre>
 <p>As you can see in the output, something is missing in the description of the variable <em>origin</em>. By default, the numbers of levels to be displayed is equal to 7. Let’s set the argument <em>maxsum</em> to 8 and see what happens.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">summary</span>(salmon_car,<span class="dt">maxsum=</span><span class="dv">8</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="understanding-the-data-from-a-product-perspective.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(salmon_car,<span class="at">maxsum=</span><span class="dv">8</span>)</span></code></pre></div>
 <pre><code>##      water              lipid                 TVBN              TMA            
 ##  Min.   :-1.69910   Min.   :-2.4628000   Min.   :-1.1623   Min.   :-0.8717000  
 ##  1st Qu.:-0.85198   1st Qu.:-0.4259750   1st Qu.:-0.7629   1st Qu.:-0.8717000  
@@ -325,12 +330,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##                      UK      :4</code></pre>
 <p>Now we want to get a multivariate description of the smoked salmons based on their chemical and physical measurements. As all the measures (except <em>origin</em>) are continuous, we’re going to run a PCA on the dataset. It seems fair to consider all the variables as <em>active</em>, and to scale them to unit variance. Here, the last variable <em>origin</em> is considered as <em>illustrative</em>.</p>
 <p>To do so, we are using the <strong>FactoMineR</strong> package and the <strong>PCA</strong> function. First, load the <strong>FactoMineR</strong> package and run the <strong>PCA</strong> function.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">library</span>(FactoMineR)</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">res &lt;-<span class="st"> </span><span class="kw">PCA</span>(salmon_car,<span class="dt">quali.sup=</span><span class="dv">17</span>,<span class="dt">graph=</span>F)</a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="kw">names</span>(res)</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="understanding-the-data-from-a-product-perspective.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb14-2"><a href="understanding-the-data-from-a-product-perspective.html#cb14-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">PCA</span>(salmon_car,<span class="at">quali.sup=</span><span class="dv">17</span>,<span class="at">graph=</span>F)</span>
+<span id="cb14-3"><a href="understanding-the-data-from-a-product-perspective.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(res)</span></code></pre></div>
 <pre><code>## [1] &quot;eig&quot;       &quot;var&quot;       &quot;ind&quot;       &quot;svd&quot;       &quot;quali.sup&quot; &quot;call&quot;</code></pre>
 <p>When you run a PCA, you often want to save the results in an R object, in order to use them latter. This is what we did: we saved them in an object we named <em>res</em>, then we applied the <strong>names</strong> function to that object. This function allows you to obtain the names of the different components of the input. For instance, if you want to see of the variance is decomposed:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">res<span class="op">$</span>eig</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="understanding-the-data-from-a-product-perspective.html#cb16-1" aria-hidden="true" tabindex="-1"></a>res<span class="sc">$</span>eig</span></code></pre></div>
 <pre><code>##         eigenvalue percentage of variance cumulative percentage of variance
 ## comp 1  5.46821199            34.17632493                          34.17632
 ## comp 2  2.51222592            15.70141202                          49.87774
@@ -348,23 +353,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## comp 14 0.07795966             0.48724787                          99.67074
 ## comp 15 0.03834453             0.23965332                          99.91039
 ## comp 16 0.01433732             0.08960828                         100.00000</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">barplot</span>(res<span class="op">$</span>eig[,<span class="dv">1</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="understanding-the-data-from-a-product-perspective.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(res<span class="sc">$</span>eig[,<span class="dv">1</span>])</span></code></pre></div>
 <p><img src="01-Introduction_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>Now, let’s see what happens if we run the <strong>plot.PCA</strong> function to the <em>res</em> object.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">plot.PCA</span>(res,<span class="dt">choix=</span><span class="st">&quot;var&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="understanding-the-data-from-a-product-perspective.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.PCA</span>(res,<span class="at">choix=</span><span class="st">&quot;var&quot;</span>)</span></code></pre></div>
 <p><img src="01-Introduction_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">plot.PCA</span>(res,<span class="dt">choix=</span><span class="st">&quot;ind&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="understanding-the-data-from-a-product-perspective.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.PCA</span>(res,<span class="at">choix=</span><span class="st">&quot;ind&quot;</span>)</span></code></pre></div>
 <p><img src="01-Introduction_files/figure-html/unnamed-chunk-8-2.png" width="672" /></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">plot.PCA</span>(res,<span class="dt">choix=</span><span class="st">&quot;ind&quot;</span>,<span class="dt">invisible=</span><span class="st">&quot;quali&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="understanding-the-data-from-a-product-perspective.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.PCA</span>(res,<span class="at">choix=</span><span class="st">&quot;ind&quot;</span>,<span class="at">invisible=</span><span class="st">&quot;quali&quot;</span>)</span></code></pre></div>
 <p><img src="01-Introduction_files/figure-html/unnamed-chunk-8-3.png" width="672" /></p>
 <p>As you can see, some news feature have been added to the <strong>FactoMineR</strong> package, notably the <em>ggplot</em> type representation of the individuals and the variables. In this example, we can see how important <em>supplementary</em> variables can be. We can also see how they can be represented, which is the case by default. Here, we projected the information on the origin of the smoked salmon. Look at the product 10, how do you think this product is salty?</p>
 <p>Any questions about the concept of <em>illustrative</em> variables? What do you think about the percentage associated with each axis?</p>
 <p>Now that we know how to differentiate <em>illustrative</em> or <em>supplementary</em> variables from the <em>active</em> ones, let’s spend some time to interpret this PCA. As you know, the two graphical representations have to be interpreted jointly.</p>
 <p>You may want to use the <strong>dimdesc</strong> function to get an interpretation of the axis.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">resdim &lt;-<span class="st"> </span><span class="kw">dimdesc</span>(res)</a>
-<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="kw">names</span>(resdim)</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="understanding-the-data-from-a-product-perspective.html#cb22-1" aria-hidden="true" tabindex="-1"></a>resdim <span class="ot">&lt;-</span> <span class="fu">dimdesc</span>(res)</span>
+<span id="cb22-2"><a href="understanding-the-data-from-a-product-perspective.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(resdim)</span></code></pre></div>
 <pre><code>## [1] &quot;Dim.1&quot; &quot;Dim.2&quot; &quot;Dim.3&quot; &quot;call&quot;</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">resdim<span class="op">$</span>Dim<span class="fl">.1</span></a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="understanding-the-data-from-a-product-perspective.html#cb24-1" aria-hidden="true" tabindex="-1"></a>resdim<span class="sc">$</span>Dim<span class="fl">.1</span></span></code></pre></div>
 <pre><code>## $quanti
 ##                    correlation      p.value
 ## lactic.flora         0.9027708 9.041485e-12
@@ -389,27 +394,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## origin=Scotland -3.662799 0.02354381
 ## 
 ## attr(,&quot;class&quot;)
-## [1] &quot;condes&quot; &quot;list &quot;</code></pre>
+## [1] &quot;condes&quot; &quot;list&quot;</code></pre>
 <p>Now, you can try to explore the dataset in a more dynamical manner. What is the difference between this,</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">library</span>(explor)</a>
-<a class="sourceLine" id="cb26-2" data-line-number="2">res &lt;-<span class="st"> </span><span class="kw">PCA</span>(salmon_car,<span class="dt">quali.sup=</span><span class="dv">17</span>,<span class="dt">graph=</span>F)</a>
-<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="kw">explor</span>(res)</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="understanding-the-data-from-a-product-perspective.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(explor)</span>
+<span id="cb26-2"><a href="understanding-the-data-from-a-product-perspective.html#cb26-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">PCA</span>(salmon_car,<span class="at">quali.sup=</span><span class="dv">17</span>,<span class="at">graph=</span>F)</span>
+<span id="cb26-3"><a href="understanding-the-data-from-a-product-perspective.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">explor</span>(res)</span></code></pre></div>
 <p>and this?</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1">res &lt;-<span class="st"> </span><span class="kw">PCA</span>(salmon_car[,<span class="op">-</span><span class="dv">17</span>],<span class="dt">graph=</span>F)</a>
-<a class="sourceLine" id="cb27-2" data-line-number="2"><span class="kw">explor</span>(res)</a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="understanding-the-data-from-a-product-perspective.html#cb27-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">PCA</span>(salmon_car[,<span class="sc">-</span><span class="dv">17</span>],<span class="at">graph=</span>F)</span>
+<span id="cb27-2"><a href="understanding-the-data-from-a-product-perspective.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">explor</span>(res)</span></code></pre></div>
 <p><strong>Exercise. </strong>
 You can play with the different arguments of the <strong>PCA</strong> and the <strong>plot.PCA</strong> functions.</p>
 <p><strong>Remark. </strong>PCA, by extracting dimensions, can be seen as a method to summarize the data, or more precisely the relations amongst the variables of your dataset. Some people would say that by running a PCA you cluster variables into dimensions. It’s very convenient, because you simplify your understanding by using a few dimensions instead of all the variables.
 You could do the same thing with the individuals. Instead of reducing the complexity on your variables, you will reduce the complexity on the individuals.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">reshcpc &lt;-<span class="st"> </span><span class="kw">HCPC</span>(res,<span class="dt">nb.clust=</span><span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="understanding-the-data-from-a-product-perspective.html#cb28-1" aria-hidden="true" tabindex="-1"></a>reshcpc <span class="ot">&lt;-</span> <span class="fu">HCPC</span>(res,<span class="at">nb.clust=</span><span class="dv">3</span>)</span></code></pre></div>
 <p><img src="01-Introduction_files/figure-html/unnamed-chunk-12-1.png" width="672" /><img src="01-Introduction_files/figure-html/unnamed-chunk-12-2.png" width="672" /><img src="01-Introduction_files/figure-html/unnamed-chunk-12-3.png" width="672" /></p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw">names</span>(reshcpc)</a></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="understanding-the-data-from-a-product-perspective.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(reshcpc)</span></code></pre></div>
 <pre><code>## [1] &quot;data.clust&quot; &quot;desc.var&quot;   &quot;desc.axes&quot;  &quot;desc.ind&quot;   &quot;call&quot;</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw">names</span>(reshcpc<span class="op">$</span>desc.var)</a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="understanding-the-data-from-a-product-perspective.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(reshcpc<span class="sc">$</span>desc.var)</span></code></pre></div>
 <pre><code>## [1] &quot;test.chi2&quot;  &quot;category&quot;   &quot;quanti.var&quot; &quot;quanti&quot;     &quot;call&quot;</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="kw">names</span>(reshcpc<span class="op">$</span>desc.var<span class="op">$</span>quanti)</a></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="understanding-the-data-from-a-product-perspective.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(reshcpc<span class="sc">$</span>desc.var<span class="sc">$</span>quanti)</span></code></pre></div>
 <pre><code>## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot;</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">reshcpc<span class="op">$</span>desc.var<span class="op">$</span>quanti<span class="op">$</span><span class="st">`</span><span class="dt">1</span><span class="st">`</span></a></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="understanding-the-data-from-a-product-perspective.html#cb35-1" aria-hidden="true" tabindex="-1"></a>reshcpc<span class="sc">$</span>desc.var<span class="sc">$</span>quanti<span class="sc">$</span><span class="st">`</span><span class="at">1</span><span class="st">`</span></span></code></pre></div>
 <pre><code>##                       v.test Mean in category  Overall mean sd in category
 ## b                   2.967108          1.23202 -3.333333e-06      1.1663873
 ## salt                2.404836          0.99856 -1.457168e-17      1.0973584
@@ -430,7 +435,7 @@ You could do the same thing with the individuals. Instead of reducing the comple
 ## enterobacteriaceae  1.0000148 0.0022659864
 ## lactic.flora        1.0000041 0.0020875189
 ## total.viable.count  1.0000033 0.0001335133</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1">reshcpc<span class="op">$</span>desc.var<span class="op">$</span>quanti<span class="op">$</span><span class="st">`</span><span class="dt">2</span><span class="st">`</span></a></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="understanding-the-data-from-a-product-perspective.html#cb37-1" aria-hidden="true" tabindex="-1"></a>reshcpc<span class="sc">$</span>desc.var<span class="sc">$</span>quanti<span class="sc">$</span><span class="st">`</span><span class="at">2</span><span class="st">`</span></span></code></pre></div>
 <pre><code>##                 v.test Mean in category  Overall mean sd in category Overall sd
 ## L             2.442596        0.7521750 -1.619075e-18      0.5146511  0.9999999
 ## water         2.241235        0.6901625 -1.000000e-05      0.9409535  1.0000067
@@ -449,7 +454,7 @@ You could do the same thing with the individuals. Instead of reducing the comple
 ## TVBN         0.016559366
 ## brochothrix  0.014101201
 ## lactobacilli 0.003690765</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1">reshcpc<span class="op">$</span>desc.var<span class="op">$</span>quanti<span class="op">$</span><span class="st">`</span><span class="dt">3</span><span class="st">`</span></a></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="understanding-the-data-from-a-product-perspective.html#cb39-1" aria-hidden="true" tabindex="-1"></a>reshcpc<span class="sc">$</span>desc.var<span class="sc">$</span>quanti<span class="sc">$</span><span class="st">`</span><span class="at">3</span><span class="st">`</span></span></code></pre></div>
 <pre><code>##                       v.test Mean in category  Overall mean sd in category
 ## lactic.flora        4.334916        0.7039353  3.333333e-06      0.4319264
 ## total.viable.count  4.055101        0.6585000  6.666667e-06      0.3942778
@@ -472,7 +477,7 @@ You could do the same thing with the individuals. Instead of reducing the comple
 ## salt                1.0000064 1.638622e-03</code></pre>
 <p>Instead of having 30 smoked salmons, we now have 3 groups of salmons: that’s how we reduce the complexity of our problem.</p>
 <p>Let’s use a very interesting output of our <strong>HCPC</strong> function, and play with it.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="kw">summary</span>(reshcpc<span class="op">$</span>data.clust)</a></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="understanding-the-data-from-a-product-perspective.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reshcpc<span class="sc">$</span>data.clust)</span></code></pre></div>
 <pre><code>##      water              lipid                 TVBN              TMA            
 ##  Min.   :-1.69910   Min.   :-2.4628000   Min.   :-1.1623   Min.   :-0.8717000  
 ##  1st Qu.:-0.85198   1st Qu.:-0.4259750   1st Qu.:-0.7629   1st Qu.:-0.8717000  
@@ -513,27 +518,27 @@ You could do the same thing with the individuals. Instead of reducing the comple
 ##  3rd Qu.: 0.388475   DK     :3         
 ##  Max.   : 3.323600   Ireland:3         
 ##                      (Other):3</code></pre>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1">res &lt;-<span class="st"> </span><span class="kw">PCA</span>(reshcpc<span class="op">$</span>data.clust,<span class="dt">quali.sup=</span><span class="kw">c</span>(<span class="dv">17</span>,<span class="dv">18</span>),<span class="dt">graph=</span>F)</a>
-<a class="sourceLine" id="cb43-2" data-line-number="2"><span class="kw">plot.PCA</span>(res,<span class="dt">choix=</span><span class="st">&quot;var&quot;</span>,<span class="dt">graph.type =</span> <span class="st">&quot;classic&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="understanding-the-data-from-a-product-perspective.html#cb43-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">PCA</span>(reshcpc<span class="sc">$</span>data.clust,<span class="at">quali.sup=</span><span class="fu">c</span>(<span class="dv">17</span>,<span class="dv">18</span>),<span class="at">graph=</span>F)</span>
+<span id="cb43-2"><a href="understanding-the-data-from-a-product-perspective.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.PCA</span>(res,<span class="at">choix=</span><span class="st">&quot;var&quot;</span>,<span class="at">graph.type =</span> <span class="st">&quot;classic&quot;</span>)</span></code></pre></div>
 <p><img src="01-Introduction_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="kw">plot.PCA</span>(res,<span class="dt">choix=</span><span class="st">&quot;var&quot;</span>,<span class="dt">graph.type =</span> <span class="st">&quot;ggplot&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="understanding-the-data-from-a-product-perspective.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.PCA</span>(res,<span class="at">choix=</span><span class="st">&quot;var&quot;</span>,<span class="at">graph.type =</span> <span class="st">&quot;ggplot&quot;</span>)</span></code></pre></div>
 <p><img src="01-Introduction_files/figure-html/unnamed-chunk-13-2.png" width="672" /></p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="kw">plot.PCA</span>(res,<span class="dt">choix=</span><span class="st">&quot;ind&quot;</span>,<span class="dt">invisible=</span><span class="st">&quot;quali&quot;</span>,<span class="dt">habillage =</span> <span class="dv">17</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="understanding-the-data-from-a-product-perspective.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.PCA</span>(res,<span class="at">choix=</span><span class="st">&quot;ind&quot;</span>,<span class="at">invisible=</span><span class="st">&quot;quali&quot;</span>,<span class="at">habillage =</span> <span class="dv">17</span>)</span></code></pre></div>
 <p><img src="01-Introduction_files/figure-html/unnamed-chunk-13-3.png" width="672" /></p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="kw">plot.PCA</span>(res,<span class="dt">choix=</span><span class="st">&quot;ind&quot;</span>,<span class="dt">invisible=</span><span class="st">&quot;quali&quot;</span>,<span class="dt">habillage =</span> <span class="dv">18</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="understanding-the-data-from-a-product-perspective.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.PCA</span>(res,<span class="at">choix=</span><span class="st">&quot;ind&quot;</span>,<span class="at">invisible=</span><span class="st">&quot;quali&quot;</span>,<span class="at">habillage =</span> <span class="dv">18</span>)</span></code></pre></div>
 <p><img src="01-Introduction_files/figure-html/unnamed-chunk-13-4.png" width="672" /></p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1"><span class="kw">plot.PCA</span>(res,<span class="dt">choix=</span><span class="st">&quot;ind&quot;</span>,<span class="dt">invisible=</span><span class="st">&quot;ind&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="understanding-the-data-from-a-product-perspective.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.PCA</span>(res,<span class="at">choix=</span><span class="st">&quot;ind&quot;</span>,<span class="at">invisible=</span><span class="st">&quot;ind&quot;</span>)</span></code></pre></div>
 <p><img src="01-Introduction_files/figure-html/unnamed-chunk-13-5.png" width="672" /></p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="kw">plot</span>(res,<span class="dt">habillage=</span><span class="st">&quot;salt&quot;</span>,<span class="dt">ggoptions=</span><span class="kw">list</span>(<span class="dt">low.col.quanti=</span><span class="st">&quot;grey90&quot;</span>,<span class="dt">high.col.quanti=</span><span class="st">&quot;grey10&quot;</span>),</a>
-<a class="sourceLine" id="cb48-2" data-line-number="2"><span class="dt">legend=</span><span class="kw">list</span>(<span class="dt">x=</span><span class="st">&quot;bottom&quot;</span>),<span class="dt">invisible =</span> <span class="st">&quot;quali&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="understanding-the-data-from-a-product-perspective.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(res,<span class="at">habillage=</span><span class="st">&quot;salt&quot;</span>,<span class="at">ggoptions=</span><span class="fu">list</span>(<span class="at">low.col.quanti=</span><span class="st">&quot;grey90&quot;</span>,<span class="at">high.col.quanti=</span><span class="st">&quot;grey10&quot;</span>),</span>
+<span id="cb48-2"><a href="understanding-the-data-from-a-product-perspective.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="at">legend=</span><span class="fu">list</span>(<span class="at">x=</span><span class="st">&quot;bottom&quot;</span>),<span class="at">invisible =</span> <span class="st">&quot;quali&quot;</span>)</span></code></pre></div>
 <p><img src="01-Introduction_files/figure-html/unnamed-chunk-13-6.png" width="672" /></p>
 <p><strong>Exercise. </strong>This exercise is very important as it presents two very useful functions of the <strong>FactoMineR</strong> package.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="kw">descfreq</span>(<span class="kw">table</span>(reshcpc<span class="op">$</span>data.clust<span class="op">$</span>clust,reshcpc<span class="op">$</span>data.clust<span class="op">$</span>origin))</a>
-<a class="sourceLine" id="cb49-2" data-line-number="2"><span class="kw">catdes</span>(reshcpc<span class="op">$</span>data.clust,<span class="dt">num.var=</span><span class="dv">18</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="understanding-the-data-from-a-product-perspective.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descfreq</span>(<span class="fu">table</span>(reshcpc<span class="sc">$</span>data.clust<span class="sc">$</span>clust,reshcpc<span class="sc">$</span>data.clust<span class="sc">$</span>origin))</span>
+<span id="cb49-2"><a href="understanding-the-data-from-a-product-perspective.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">catdes</span>(reshcpc<span class="sc">$</span>data.clust,<span class="at">num.var=</span><span class="dv">18</span>)</span></code></pre></div>
 <p>To understand the code, you should first run this:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="kw">table</span>(reshcpc<span class="op">$</span>data.clust<span class="op">$</span>clust,reshcpc<span class="op">$</span>data.clust<span class="op">$</span>origin)</a>
-<a class="sourceLine" id="cb50-2" data-line-number="2"><span class="kw">colnames</span>(reshcpc<span class="op">$</span>data.clust)</a></code></pre></div>
-<p><strong>Exercise. </strong>Please, provide a description of the French salmons.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="understanding-the-data-from-a-product-perspective.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(reshcpc<span class="sc">$</span>data.clust<span class="sc">$</span>clust,reshcpc<span class="sc">$</span>data.clust<span class="sc">$</span>origin)</span>
+<span id="cb50-2"><a href="understanding-the-data-from-a-product-perspective.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(reshcpc<span class="sc">$</span>data.clust)</span></code></pre></div>
+<p><strong>Exercise. </strong>Please, provide a description of the French salmons regarding their characteristics.</p>
 
 </div>
 </div>

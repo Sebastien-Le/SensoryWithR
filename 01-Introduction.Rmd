@@ -137,4 +137,4 @@ table(reshcpc$data.clust$clust,reshcpc$data.clust$origin)
 colnames(reshcpc$data.clust)
 ```
 
-**Exercise. **Please, provide a description of the French salmons...
+**Exercise. **Please, provide a description of the French salmons regarding their characteristics.
